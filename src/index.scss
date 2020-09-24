@@ -1,0 +1,50 @@
+//Here lies the index.js related styles
+
+@import './assets/variables';
+
+html {
+  font-size: 10px;
+  line-height: 1.15;
+
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font;
+
+  background-color: $background;
+
+  margin: 0;
+
+  height: 100%;
+  width: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+
+  transition: background-color 0.3s;
+}
+
+*,
+*:before,
+*:after {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+#root {
+  position: relative;
+
+  height: 100%;
+  width: 100%;
+  min-height: 30rem;
+}
+
+#root > div[class*='container'] {
+  width: 80%;
+
+  margin: 3em auto;
+}

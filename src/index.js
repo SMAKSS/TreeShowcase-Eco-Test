@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+/**
+ * This is the main index which responsible for managing React components into the actual DOM.
+ */
 ReactDOM.render(
   <React.StrictMode>
     <App />

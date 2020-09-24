@@ -1,0 +1,20 @@
+// Here lies the related styles to Card.js
+
+@import '../assets/variables';
+
+.card-container {
+  border: 1px solid $main-border;
+  border-radius: 0.5rem;
+
+  margin: 0 1rem;
+  padding: 1rem;
+
+  max-width: 30em;
+}
+
+.card-container .body img {
+  border-radius: 0.3rem;
+
+  width: 25rem;
+  height: 25rem;
+}

@@ -1,0 +1,41 @@
+// Here lies the related styles to Button.js
+
+@import '../../assets/variables';
+
+button[disabled] {
+  pointer-events: none;
+}
+
+.button {
+  display: inline-block;
+  vertical-align: middle;
+
+  border: 2px solid transparent;
+  border-radius: 0.25rem;
+
+  padding: 0 2rem;
+
+  height: 4.6rem;
+  min-width: 14rem;
+
+  font-size: 0;
+  line-height: calc(4.6rem - 2px);
+  text-align: center;
+
+  transition: background 0.4s cubic-bezier(1, 0, 0, 1), color 0.4s;
+}
+
+.button .label {
+  display: inline-block;
+  vertical-align: middle;
+
+  font: 500 1.4rem/1 $font;
+  white-space: nowrap;
+  user-select: none;
+}
+
+@media (max-width: 767px) {
+  .button .label {
+    font-size: 1.2rem;
+  }
+}
