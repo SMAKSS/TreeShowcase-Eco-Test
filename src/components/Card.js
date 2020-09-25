@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Image from './Image';
 import { Button } from './form';
@@ -12,7 +12,8 @@ import './Card.scss';
  * This function is responsible for card element
  */
 function Card(props) {
-  const [state, setState] = useState(props.data);
+  const { data } = props;
+  const [state, setState] = useState(data);
 
   /**
    *
@@ -27,6 +28,14 @@ function Card(props) {
       imageVisibilityStatus: !state.imageVisibilityStatus
     }));
   }
+
+  /**
+   * This useEffect is responsible for updating the tree list 
+   * whenever the data from the parent changed.
+   */
+  useEffect(() => {
+    setState(data);
+  }, [data]);
 
   return (
     <div className='card-container'>

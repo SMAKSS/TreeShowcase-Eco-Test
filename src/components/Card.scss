@@ -13,23 +13,8 @@
   max-width: 30em;
 
   animation-duration: 0.6s;
-  animation-name: fadeIn;
+  animation-name: fadeIn; // Due to its multiple usage its moved to App.scss
   animation-timing-function: linear;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    visibility: hidden;
-  }
-  80% {
-    opacity: 0;
-    visibility: hidden;
-  }
-  to {
-    opacity: 1;
-    visibility: inherit;
-  }
 }
 
 .card-container .header {
@@ -66,21 +51,6 @@
 
 .card-container .header > h3 {
   transition: all 0.5s;
-}
-
-.card-container .header .divider {
-  position: absolute;
-  left: 0;
-  right: 0;
-
-  display: block;
-
-  background: $main-border;
-
-  height: 1px;
-  width: 70%;
-
-  margin: 0 auto;
 }
 
 .card-container .header.centre {
@@ -193,9 +163,5 @@
       font-size: 1.6rem;
       line-height: 2.6rem;
     }
-  }
-
-  .card-container .body {
-    height: 20rem;
   }
 }

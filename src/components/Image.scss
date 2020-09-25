@@ -12,23 +12,8 @@ img.d-show {
   visibility: inherit;
 
   animation-duration: 0.5s;
-  animation-name: fadeIn;
+  animation-name: fadeIn; // Due to its multiple usage its moved to App.scss
   animation-timing-function: linear;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    visibility: hidden;
-  }
-  80% {
-    opacity: 0;
-    visibility: hidden;
-  }
-  to {
-    opacity: 1;
-    visibility: inherit;
-  }
 }
 
 img.d-none {

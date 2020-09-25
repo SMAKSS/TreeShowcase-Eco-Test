@@ -13,6 +13,50 @@ p {
   margin: 0;
 }
 
+button,
+input {
+  font-family: inherit;
+  font-size: 1.2rem;
+  line-height: 1.15;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+input {
+  outline: none;
+  width: 100%;
+  height: 3.6rem;
+  border: 1px solid $main-border;
+  border-radius: 0.5rem;
+  padding: 1.4rem 3.5rem;
+  font-size: 1.4rem;
+  display: block;
+}
+
+input:focus {
+  border-color: $button-secondary;
+}
+
+input:invalid:focus {
+  border-color: $error;
+}
+
+input.reverse-direction {
+  direction: ltr;
+}
+
+input::placeholder {
+  color: $hint;
+  font-size: 1.4rem;
+}
+
+.heading-01 {
+  font: 600 2.5rem/3.5rem $font;
+  color: $heading-color-01;
+}
+
 .heading-02 {
   font: 600 1.8rem/2.4rem $font;
   color: $heading-color-02;
@@ -21,6 +65,21 @@ p {
 .heading-03 {
   font: 400 1.3rem/2.2rem $font;
   color: $heading-color-03;
+}
+
+.divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  display: block;
+
+  background: $main-border;
+
+  height: 1px;
+  width: 70%;
+
+  margin: 0 auto;
 }
 
 @media (max-width: 767px) {
@@ -32,5 +91,20 @@ p {
   .heading-03 {
     font-size: 1.1rem;
     line-height: 2rem;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  80% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: inherit;
   }
 }

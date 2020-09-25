@@ -1,6 +1,34 @@
 // Here lies the related styles to Showcase.js
 
+@import '../assets/variables';
 @import '../assets/mixins';
+
+.no-result-container,
+.title-container {
+  text-align: center;
+
+  position: relative;
+
+  animation-duration: 0.6s;
+  animation-name: fadeIn; // Due to its multiple usage its moved to App.scss
+  animation-timing-function: linear;
+}
+
+.title-container > span {
+  background: $background;
+
+  padding: 0 1rem;
+}
+
+.title-container .divider {
+  height: 2px;
+
+  border-radius: 50%;
+
+  top: 50%;
+
+  z-index: -1;
+}
 
 .tree-container {
   @include flex-display(center, center, row, wrap);
