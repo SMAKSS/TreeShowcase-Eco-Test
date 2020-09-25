@@ -22,3 +22,15 @@ p {
   font: 400 1.3rem/2.2rem $font;
   color: $heading-color-03;
 }
+
+@media (max-width: 767px) {
+  .heading-02 {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+  }
+
+  .heading-03 {
+    font-size: 1.1rem;
+    line-height: 2rem;
+  }
+}

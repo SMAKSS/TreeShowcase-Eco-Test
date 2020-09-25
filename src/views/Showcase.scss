@@ -1,10 +1,9 @@
 // Here lies the related styles to Showcase.js
 
+@import '../assets/mixins';
+
 .tree-container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
+  @include flex-display(center, center, row, wrap);
 }
 
 .tree-container > div[class*='container'] {

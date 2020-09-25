@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import UUID from '../utils/UUID';
+import LoadingSpinner from '../components/LoadingSpinner';
 import Card from '../components/Card';
 
 import './Showcase.scss';
@@ -36,15 +37,21 @@ function Showcase() {
     fetchShowcases();
   }, [fetchShowcases]);
 
-  return (
-    <>
-      <div className='tree-container'>
-        {state.trees.map((tree) => (
-          <Card key={tree.id} data={tree} />
-        ))}
-      </div>
-    </>
-  );
+  if (state.trees.length === 0) {
+    return (
+      <LoadingSpinner parentDiv={true} stroke={'path-animation-stroke-other'} />
+    );
+  } else {
+    return (
+      <>
+        <div className='tree-container'>
+          {state.trees.map((tree) => (
+            <Card key={tree.id} data={tree} />
+          ))}
+        </div>
+      </>
+    );
+  }
 }
 
 export default Showcase;

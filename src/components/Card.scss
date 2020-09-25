@@ -9,7 +9,48 @@
   margin: 0 1rem;
   padding: 1rem;
 
+  width: 100%;
   max-width: 30em;
+
+  animation-duration: 0.6s;
+  animation-name: fadeIn;
+  animation-timing-function: linear;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  80% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: inherit;
+  }
+}
+
+.card-container .header {
+  transform: translateY(0);
+
+  animation-duration: 0.5s;
+  animation-name: moveToTop;
+  animation-timing-function: linear;
+}
+
+@keyframes moveToTop {
+  from {
+    transform: translateY(250%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.card-container .header {
+  min-height: 6.2rem;
 }
 
 .card-container .header,
@@ -17,6 +58,14 @@
   position: relative;
 
   text-align: center;
+}
+
+.card-container .header > h2 {
+  transition: all 0.5s;
+}
+
+.card-container .header > h3 {
+  transition: all 0.5s;
 }
 
 .card-container .header .divider {
@@ -32,16 +81,121 @@
   width: 70%;
 
   margin: 0 auto;
+}
 
-  transition: 1s;
+.card-container .header.centre {
+  transform: translateY(210%);
+
+  animation-duration: 0.5s;
+  animation-name: moveToCentre;
+  animation-timing-function: linear;
+}
+
+@keyframes moveToCentre {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(210%);
+  }
+}
+
+.card-container .header.centre > h2 {
+  font-size: 2.2rem;
+  line-height: 3.2rem;
+
+  animation-duration: 0.5s;
+  animation-name: fontChangeForh2;
+  animation-timing-function: linear;
+}
+
+@keyframes fontChangeForh2 {
+  from {
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+  }
+  to {
+    font-size: 2.2rem;
+    line-height: 3.2rem;
+  }
+}
+
+.card-container .header.centre > h3 {
+  font-size: 1.8rem;
+  line-height: 3rem;
+
+  animation-duration: 0.5s;
+  animation-name: fontChangeForh3;
+  animation-timing-function: linear;
+}
+
+@keyframes fontChangeForh3 {
+  from {
+    font-size: 1.3rem;
+    line-height: 2.2rem;
+  }
+  to {
+    font-size: 1.8rem;
+    line-height: 3rem;
+  }
 }
 
 .card-container .body {
   margin: 1.5rem 0;
+
+  height: 25rem;
 }
 
 .card-container .body img {
   border-radius: 0.3rem;
+}
 
-  height: 25rem;
+@media (max-width: 767px) {
+  .card-container .header {
+    min-height: 5rem;
+  }
+
+  .card-container .header.centre > h2 {
+    font-size: 2rem;
+    line-height: 2.8rem;
+
+    animation-duration: 0.5s;
+    animation-name: fontChangeForh2;
+    animation-timing-function: linear;
+  }
+
+  @keyframes fontChangeForh2 {
+    from {
+      font-size: 1.8rem;
+      line-height: 2.4rem;
+    }
+    to {
+      font-size: 2rem;
+      line-height: 2.8rem;
+    }
+  }
+
+  .card-container .header.centre > h3 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+
+    animation-duration: 0.5s;
+    animation-name: fontChangeForh3;
+    animation-timing-function: linear;
+  }
+
+  @keyframes fontChangeForh3 {
+    from {
+      font-size: 1.3rem;
+      line-height: 2.2rem;
+    }
+    to {
+      font-size: 1.6rem;
+      line-height: 2.6rem;
+    }
+  }
+
+  .card-container .body {
+    height: 20rem;
+  }
 }

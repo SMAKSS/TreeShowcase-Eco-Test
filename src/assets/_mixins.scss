@@ -1,0 +1,15 @@
+// Here lies the common scss mixins
+
+@mixin flex-display(
+  $alignItems: initial,
+  $justifyContent: initial,
+  $flexDirection: inherit,
+  $flexWrap: nowrap,
+  $flex: inherit
+) {
+  display: flex;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
+  flex-flow: $flexDirection $flexWrap;
+  flex: $flex;
+}

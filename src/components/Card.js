@@ -30,17 +30,19 @@ function Card(props) {
 
   return (
     <div className='card-container'>
-      <div className='header'>
+      <div className={`header ${!state.imageVisibilityStatus ? 'centre' : ''}`}>
         <h2 className='heading-02'>{state.name}</h2>
         <h3 className='heading-03'>{state.species_name}</h3>
         {!state.imageVisibilityStatus && <div className='divider' />}
       </div>
       <div className='body'>
-        <Image
-          src={state.image}
-          alt={state.name}
-          className={state.imageVisibilityStatus ? null : 'd-none'}
-        />
+        {state.imageVisibilityStatus && (
+          <Image
+            src={state.image}
+            alt={state.name}
+            className={state.imageVisibilityStatus ? 'd-show' : 'd-none'}
+          />
+        )}
       </div>
       <div className='footer'>
         <Button
