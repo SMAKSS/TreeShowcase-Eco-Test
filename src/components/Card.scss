@@ -12,9 +12,36 @@
   max-width: 30em;
 }
 
+.card-container .header,
+.card-container .footer {
+  position: relative;
+
+  text-align: center;
+}
+
+.card-container .header .divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  display: block;
+
+  background: $main-border;
+
+  height: 1px;
+  width: 70%;
+
+  margin: 0 auto;
+
+  transition: 1s;
+}
+
+.card-container .body {
+  margin: 1.5rem 0;
+}
+
 .card-container .body img {
   border-radius: 0.3rem;
 
-  width: 25rem;
   height: 25rem;
 }

@@ -7,6 +7,8 @@ button[disabled] {
 }
 
 .button {
+  position: relative;
+
   display: inline-block;
   vertical-align: middle;
 
@@ -15,14 +17,31 @@ button[disabled] {
 
   padding: 0 2rem;
 
-  height: 4.6rem;
-  min-width: 14rem;
+  height: 4.2rem;
+  min-width: 13rem;
 
   font-size: 0;
-  line-height: calc(4.6rem - 2px);
+  line-height: calc(4.2rem - 2px);
   text-align: center;
 
+  outline: none;
+
   transition: background 0.4s cubic-bezier(1, 0, 0, 1), color 0.4s;
+}
+
+@media (max-width: 767px) {
+  .button {
+    height: 3.8rem;
+    width: 100%;
+
+    line-height: calc(4rem - 2px);
+  }
+}
+
+.button[data-type='primary'] {
+  background: transparent;
+
+  border: 2px solid $button-secondary;
 }
 
 .button .label {
@@ -35,7 +54,67 @@ button[disabled] {
 }
 
 @media (max-width: 767px) {
+  .button[data-type='primary'] {
+    border-width: 1px;
+  }
+
+  .button[data-type='primary']:focus {
+    background: $button-secondary;
+    color: $background;
+
+    transition: background 0.4s;
+  }
+
   .button .label {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .button[data-type='primary']::before {
+    content: '';
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: $button-secondary;
+
+    transform-origin: 100% 0;
+    transform: scaleX(0);
+    transition: transform 300ms;
+  }
+
+  .button[data-type='primary']:hover .label {
+    background-position: 0 0;
+  }
+
+  .button[data-type='primary']:hover::before {
+    transform-origin: 0 0;
+    transform: scaleX(1);
+  }
+
+  .button .label {
+    position: relative;
+
+    color: transparent;
+    background-image: linear-gradient(
+      90deg,
+      $background 0%,
+      $background 50%,
+      $button-secondary 50%,
+      $button-secondary 100%
+    );
+
+    background-repeat: repeat;
+    background-size: 200%;
+    background-position: 100% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    transition: background-position 300ms;
   }
 }

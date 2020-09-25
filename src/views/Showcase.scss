@@ -2,7 +2,11 @@
 
 .tree-container {
   display: flex;
-  justify-content: space-around;
+  flex-flow: row wrap;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+}
+
+.tree-container > div[class*='container'] {
+  margin: 1%;
 }

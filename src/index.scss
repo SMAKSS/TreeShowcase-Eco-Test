@@ -10,6 +10,13 @@ html {
   box-sizing: border-box;
 }
 
+@media (max-width: 767px) {
+  html {
+    font-size: 8px;
+    line-height: 1;
+  }
+}
+
 body {
   font-family: $font;
 

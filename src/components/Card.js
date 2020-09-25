@@ -31,8 +31,9 @@ function Card(props) {
   return (
     <div className='card-container'>
       <div className='header'>
-        <h2>{state.name}</h2>
-        <h3>{state.species_name}</h3>
+        <h2 className='heading-02'>{state.name}</h2>
+        <h3 className='heading-03'>{state.species_name}</h3>
+        {!state.imageVisibilityStatus && <div className='divider' />}
       </div>
       <div className='body'>
         <Image
@@ -45,6 +46,7 @@ function Card(props) {
         <Button
           innerText={state.imageVisibilityStatus ? 'Hide Image' : 'Show Image'}
           onClick={(event) => imageVisibilityHandler(event)}
+          data-type='primary'
         />
       </div>
     </div>

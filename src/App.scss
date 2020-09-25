@@ -1,0 +1,24 @@
+// Here lies the related styles to App.js (General Styles)
+
+@import './assets/variables';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+  margin: 0;
+}
+
+.heading-02 {
+  font: 600 1.8rem/2.4rem $font;
+  color: $heading-color-02;
+}
+
+.heading-03 {
+  font: 400 1.3rem/2.2rem $font;
+  color: $heading-color-03;
+}
