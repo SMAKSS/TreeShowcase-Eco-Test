@@ -10,6 +10,8 @@ import './Button.scss';
  * @param {Function} onClick - button onclick handler
  * @param {any} props - rest of the props
  * 
+ * @returns {HTMLButtonElement} - it will return a button element 
+ * 
  * This function is responsible for Button component
  */
 function Button({

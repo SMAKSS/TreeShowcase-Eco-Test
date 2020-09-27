@@ -13,6 +13,9 @@ import './Input.scss';
  * @param {String} type - input type
  * @param {String} value - input value
  * @param {Function} onChange - input onchange handler
+ * 
+ * @returns {HTMLInputElement} - it will return an input wrapped within a div
+ * 
  * This function is responsible for Input component.
  */
 function Input({

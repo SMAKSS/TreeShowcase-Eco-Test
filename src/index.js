@@ -5,6 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 /**
+ * @returns {HTMLDivElement} - it will return the whole react project DOM
+ * 
  * This is the main index which responsible for managing React components into the actual DOM.
  */
 ReactDOM.render(

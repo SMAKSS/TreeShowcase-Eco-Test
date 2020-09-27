@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
-import UUID from '../utils/UUID';
+import { UUID, SearchArrays } from '../Utils';
 import LoadingSpinner from '../components/LoadingSpinner';
 import Card from '../components/Card';
 import { Input } from '../components/form';
@@ -12,6 +12,9 @@ import './Showcase.scss';
 /**
  * This is the main view of the tree showcase application
  * which responsible for the main and only page of it
+ *
+ * @returns {HTMLDivElement} - it can be a loading spinner (During the API call or its failing),
+ * all of the showcases (Default), filtered showcases (If user search for anything by the search input)
  */
 function Showcase() {
   const [state, setState] = useState({
@@ -24,8 +27,8 @@ function Showcase() {
   /**
    * This function is responsible for fetching trees from the server.
    */
-  const fetchShowcases = useCallback(() => {
-    fetch(process.env.REACT_APP_URL)
+  const fetchShowcases = useCallback((abortController) => {
+    fetch(process.env.REACT_APP_URL, { signal: abortController.signal })
       .then((response) => response.json())
       .then((data) => {
         const trees = data.trees.map((tree) => ({
@@ -36,8 +39,10 @@ function Showcase() {
         setState((prev) => ({ ...prev, trees: trees }));
       })
       .catch((error) => {
-        throw new Error(`Following error has been thrown
-      ${error}`);
+        if (!abortController.signal.aborted) {
+          console.error(`Following error has been thrown
+          ${error}`);
+        }
       });
   }, []);
 
@@ -46,18 +51,10 @@ function Showcase() {
    * We just use a regex here and an i flag to avoid inconsistency between upper and lower case searches.
    */
   const searchHandler = useCallback(() => {
-    const filtered = [];
-    const regex = new RegExp(state.searchText, 'i');
-    state.trees.forEach((tree) => {
-      for (let key in tree) {
-        if (
-          (key === 'name' || key === 'species_name') &&
-          tree[key].toString().match(regex) &&
-          !filtered.some((el) => el.id === tree.id)
-        ) {
-          filtered.push(tree);
-        }
-      }
+    const filtered = SearchArrays({
+      searchText: state.searchText,
+      array: state.trees,
+      keys: ['name', 'species_name']
     });
 
     if (filtered.length === 0) {
@@ -79,7 +76,11 @@ function Showcase() {
    * This useEffect exists to run the fetchShowcases once the page loaded.
    */
   useEffect(() => {
-    fetchShowcases();
+    const abortController = new AbortController();
+    fetchShowcases(abortController);
+    return () => {
+      abortController.abort();
+    };
   }, [fetchShowcases]);
 
   /**
@@ -123,7 +124,11 @@ function Showcase() {
 
   if (state.trees.length === 0 && state.filteredTrees.length === 0) {
     return (
-      <LoadingSpinner parentDiv={true} stroke={'path-animation-stroke-other'} />
+      <LoadingSpinner
+        parentDiv={true}
+        stroke={'path-animation-stroke-other'}
+        data-testid='spinner-container'
+      />
     );
   } else if (
     state.trees.length !== 0 &&
@@ -134,7 +139,7 @@ function Showcase() {
     return (
       <>
         {searchInput}
-        <div className='no-result-container'>
+        <div className='no-result-container' data-testid='no-result-container'>
           <span className='heading-01'>
             {`Unfortunately, I couldn't find anything for you here, what a
             disastah for me! `}
@@ -153,7 +158,7 @@ function Showcase() {
           <span className='heading-01'>{'Tree Showcase'}</span>
           <div className='divider' />
         </div>
-        <div className='tree-container'>
+        <div className='trees-container' data-testid='trees-container'>
           {state.searchText
             ? state.filteredTrees.map((filteredTree) => (
                 <Card key={filteredTree.id} data={filteredTree} />

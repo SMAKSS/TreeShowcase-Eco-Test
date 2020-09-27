@@ -9,10 +9,12 @@ import './Card.scss';
  *
  * @param {Object} props - related data to each card
  *
+ * @returns {HTMLElement} - it will return a card which contains the tree data
+ *
  * This function is responsible for card element
  */
 function Card(props) {
-  const { data } = props;
+  const { data, ...restProps } = props;
   const [state, setState] = useState(data);
 
   /**
@@ -22,6 +24,8 @@ function Card(props) {
    * This function is responsible for card image display on card button clicks.
    */
   function imageVisibilityHandler(event) {
+    // throw new Error('done')
+
     event.preventDefault();
     setState((prev) => ({
       ...prev,
@@ -30,15 +34,17 @@ function Card(props) {
   }
 
   /**
-   * This useEffect is responsible for updating the tree list 
+   * This useEffect is responsible for updating the tree list
    * whenever the data from the parent changed.
    */
   useEffect(() => {
-    setState(data);
+    let reRenderState = true;
+    reRenderState && setState(data);
+    return () => (reRenderState = false);
   }, [data]);
 
   return (
-    <div className='card-container'>
+    <div className='card-container' {...restProps}>
       <div className={`header ${!state.imageVisibilityStatus ? 'centre' : ''}`}>
         <h2 className='heading-02'>{state.name}</h2>
         <h3 className='heading-03'>{state.species_name}</h3>

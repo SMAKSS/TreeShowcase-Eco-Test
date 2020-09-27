@@ -4,22 +4,26 @@ import styles from './loadingSpinner.module.scss';
 
 /**
  *
- * @param {Boolean} parentDiv
- * @param {String} display
- * @param {String} stroke
- * @returns {HTMLDivElement} It will return a loading spinner with the desired colored passed by stroke
- * @constructor
+ * @param {Boolean} parentDiv - if its true, the spinner will wrapped within the parent div
+ * @param {String} display - the customized display class like d-none class
+ * @param {String} stroke - color of stroke
+ * @param {any} props - rest of props (like data attributes)
+ *
+ * @returns {HTMLDivElement} - it will return a loading spinner with the desired colored passed by stroke
+ *
  */
 function LoadingSpinner({
   parentDiv = false,
   display = '',
-  stroke = 'path-animation-stroke-other'
+  stroke = 'path-animation-stroke-other',
+  ...props
 }) {
   return (
     <div
       className={`${
         parentDiv ? `${styles.custom_loader_container}` : ''
       } ${display}`}
+      {...props}
     >
       <svg
         className={styles.spinner}
