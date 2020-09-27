@@ -1,4 +1,30 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tree showcase
+
+This project is a simple-ish card view for trees (Tree showcase) and developed for Eco test. I literally did not use any library or package to develop this app and it just bootstrapped by CRA (This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)).
+
+## Features
+
+This project data is coming from an AWS endpoint which available in `.env` file and is committed to the git, so everyone can access it for testing purposes.
+
+I just implement the following features for this data table in this project.
+
+- Each record will represent in an individual card.
+- Each card has shown and hide the image button.
+- A search input available for searching live within the data.
+- Each individual component and module has its own test case.
+
+## Few notes
+
+- If you ever experienced [CORS](https://javascript.info/fetch-crossorigin) error it is recommended to use [Allow CORS plugin](https://mybrowseraddon.com/access-control-allow-origin.html).
+- SCSS files and/or import in js files got some intentional white-space for more readability.
+- There is **no** end-to-end and/or UI test for this project.
+- `.env` committed to the git intentionally for better usability.
+
+## Here are some screenshots
+
+<img src="public/screenshots/home.jpg" width="150"/>  <img src="public/screenshots/homeImage.jpg" width="150"/> <img src="public/screenshots/search.jpg" width="150"/>  <img src="public/screenshots/noResult.jpg" width="150"/>
+
+----
 
 ## Available Scripts
 
@@ -42,27 +68,3 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
