@@ -41,7 +41,7 @@ function SearchArrays({
     Object.keys(arr).forEach((key) => {
       const includes = include ? keys.includes(key) : !keys.includes(key);
       if (
-        includes &&
+        (keys.length > 0 ? includes : true) &&
         arr[key].toString().match(regex) &&
         !filtered.some((el) => el.id === arr.id)
       ) {

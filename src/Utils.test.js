@@ -37,4 +37,14 @@ test('Search in array', () => {
       include: true
     })
   ).toEqual(['name']);
+  expect(
+    SearchArrays({
+      searchText: 'name',
+      array
+    })
+  ).toEqual([
+    { id: '99-33', name: 'test-name' },
+    { id: '33-99', name: 'name' },
+    'name'
+  ]);
 });
